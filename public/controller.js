@@ -93,7 +93,7 @@ function signin() {
                 alert(JSON.parse(http.responseText)["message"]);
             } else {
                 localStorage.setItem("user_email", details["email"]);
-                window.location.pathname = "./dashboard.html";      
+                window.location.pathname = "./dashboard.html";
                 getPersonalPosts();
             }
         }
@@ -112,7 +112,9 @@ function signout() {
 }
 
 function getPersonalPosts() {
-    document.getElementById("user-email").placeholder = window.localStorage.getItem("user_email");
+    document.getElementById(
+        "user-email"
+    ).placeholder = window.localStorage.getItem("user_email");
     let http = new XMLHttpRequest();
     let url = "api/admin/post/crud";
     http.open("GET", url, true);
@@ -223,7 +225,7 @@ function getHomePosts() {
 }
 
 function updateCurrentId(element) {
-    let post = element.parentNode.parentNode;
+    let post = element.parentNode.parentNode.parentNode;
     currentId = post.getAttribute("card-id");
 }
 
